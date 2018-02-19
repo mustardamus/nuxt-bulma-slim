@@ -1,6 +1,13 @@
 module.exports = {
   srcDir: './example',
-  modules: ['./lib'],
+  modules: [
+    [
+      './lib',
+      {
+        variablesPath: 'assets/sass/variables.sass'
+      }
+    ]
+  ],
   build: {
     extractCSS: true
   }
