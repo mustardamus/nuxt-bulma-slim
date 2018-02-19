@@ -1,0 +1,36 @@
+{
+  "name": "nuxt-bulma-slim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "test": "jest -c jest.config.js",
+    "test:watch": "jest -c jest.config.js --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bulma": "^0.6.2",
+    "globby": "^8.0.1",
+    "lodash.flattendeep": "^4.4.0",
+    "lodash.uniq": "^4.5.0",
+    "node-sass": "^4.7.2",
+    "vue-template-compiler": "^2.5.13"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.12.2",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "jest": "^22.3.0",
+    "nuxt": "^1.3.0",
+    "prettier": "^1.10.2",
+    "sass-loader": "^6.0.6"
+  }
+}
