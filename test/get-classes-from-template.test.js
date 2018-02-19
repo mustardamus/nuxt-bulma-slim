@@ -20,6 +20,6 @@ describe('Get Classes From Template', () => {
     ])
   })
 
-  it('should get bind class names from an object')
-  it('should get bind class names from a string')
+  // it('should get bind class names from an object')
+  // it('should get bind class names from a string')
 })

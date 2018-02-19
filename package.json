@@ -4,15 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nuxt",
+    "dev": "PORT=9797 nuxt",
     "build": "nuxt build",
     "test": "jest -c jest.config.js",
-    "test:watch": "jest -c jest.config.js --watch"
+    "test:watch": "jest -c jest.config.js --watch",
+    "lint": "eslint --ignore-path .gitignore .",
+    "lint:fix": "eslint --ignore-path .gitignore --fix ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": ">=6.13.0"
+  },
   "dependencies": {
+    "ansicolor": "^1.1.71",
     "bulma": "^0.6.2",
     "globby": "^8.0.1",
     "lodash.flattendeep": "^4.4.0",

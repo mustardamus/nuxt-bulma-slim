@@ -11,7 +11,7 @@ module.exports = {
     jest: true
   },
 
-  plugins: ['prettier', 'jest', 'import', 'promise'],
+  plugins: ['prettier', 'jest', 'import', 'promise', 'node'],
 
   extends: [
     'eslint:recommended',
@@ -19,7 +19,8 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
-    'plugin:promise/recommended'
+    'plugin:promise/recommended',
+    'plugin:node/recommended'
   ],
 
   rules: {
@@ -29,6 +30,8 @@ module.exports = {
         singleQuote: true,
         semi: false
       }
-    ]
+    ],
+
+    'no-console': 'off'
   }
 }
