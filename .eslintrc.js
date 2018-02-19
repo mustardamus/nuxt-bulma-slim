@@ -11,7 +11,7 @@ module.exports = {
     jest: true
   },
 
-  plugins: ['prettier', 'jest', 'import', 'promise', 'node'],
+  plugins: ['prettier', 'jest', 'import', 'node'],
 
   extends: [
     'eslint:recommended',
@@ -19,7 +19,6 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
-    'plugin:promise/recommended',
     'plugin:node/recommended'
   ],
 
