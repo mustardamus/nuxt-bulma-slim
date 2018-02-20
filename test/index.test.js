@@ -75,7 +75,7 @@ describe('Nuxt Module', () => {
 
     const lines = readFileSync(sassTempPath, 'utf8').split('\n')
 
-    expect(lines).toHaveLength(10) // each feature
+    expect(lines).toHaveLength(7) // each used feature
     expect(lines[0].includes(bulmaPath)).toBe(true)
   })
 

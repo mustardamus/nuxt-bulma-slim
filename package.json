@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "PORT=9797 nuxt",
     "build": "nuxt build",
+    "start": "PORT=9797 nuxt start",
     "test": "jest -c jest.config.js --silent",
     "test:watch": "jest -c jest.config.js --watch",
     "lint": "eslint --ignore-path .gitignore .",
