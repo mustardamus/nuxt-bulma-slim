@@ -5,7 +5,8 @@ describe('Nuxt Module', () => {
   it('should work', () => {
     const context = {
       options: {
-        srcDir: join(__dirname, '..'),
+        rootDir: join(__dirname, '..'),
+        srcDir: join(__dirname, '../example'),
         css: [],
         build: {}
       }
