@@ -83,7 +83,7 @@ describe('Nuxt Module', () => {
     const context = {
       options: {
         dev: true,
-        rootDir: join(__dirname, '..'), //join(__dirname, '../node_modules/lodash.trim'), // to read the package.json that doesnt have sass dependencies
+        rootDir: join(__dirname, '..'),
         srcDir: join(__dirname, '../example'),
         css: [],
         build: {}
@@ -106,5 +106,47 @@ describe('Nuxt Module', () => {
 
     expect(lines).toHaveLength(7) // each feature
     expect(lines[1].includes(bulmaPath)).toBe(true)
+  })
+
+  it('should write full bulma css build if on development', () => {
+    const context = {
+      options: {
+        dev: true,
+        rootDir: join(__dirname, '../node_modules/lodash.trim'), // to read the package.json that doesnt have sass dependencies
+        srcDir: join(__dirname, '../example'),
+        css: [],
+        build: {}
+      }
+    }
+    const cssTempPath = join(tmpdir(), 'nuxt-bulma-slim.full.css')
+    const options = { cssTempPath, variablesPath: false }
+
+    nuxtModule.call(context, options)
+
+    expect(existsSync(cssTempPath)).toBe(true)
+    expect(context.options.css).toHaveLength(1)
+    expect(context.options.css[0]).toBe(cssTempPath)
+    expect(existsSync(cssTempPath)).toBe(true)
+  })
+
+  it('should write slim bulma css build if on development', () => {
+    const context = {
+      options: {
+        dev: false,
+        rootDir: join(__dirname, '../node_modules/lodash.trim'), // to read the package.json that doesnt have sass dependencies
+        srcDir: join(__dirname, '../example'),
+        css: [],
+        build: {}
+      }
+    }
+    const cssTempPath = join(tmpdir(), 'nuxt-bulma-slim.slim.css')
+    const options = { cssTempPath, variablesPath: false }
+
+    nuxtModule.call(context, options)
+
+    expect(existsSync(cssTempPath)).toBe(true)
+    expect(context.options.css).toHaveLength(1)
+    expect(context.options.css[0]).toBe(cssTempPath)
+    expect(existsSync(cssTempPath)).toBe(true)
   })
 })
