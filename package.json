@@ -22,6 +22,7 @@
     "bulma": "^0.6.2",
     "globby": "^8.0.1",
     "lodash.flattendeep": "^4.4.0",
+    "lodash.trim": "^4.5.1",
     "lodash.uniq": "^4.5.0",
     "node-sass": "^4.7.2",
     "vue-template-compiler": "^2.5.13"
