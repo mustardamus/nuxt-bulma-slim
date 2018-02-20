@@ -29,7 +29,7 @@ describe('Nuxt Module', () => {
     expect(context.options.css).toHaveLength(1)
   })
 
-  it('should write full bulma build if on development', () => {
+  it('should write full bulma sass build if on development', () => {
     const context = {
       options: {
         dev: true,
@@ -54,11 +54,11 @@ describe('Nuxt Module', () => {
     expect(lines[0].includes(bulmaPath)).toBe(true)
   })
 
-  it('should write the slim bulma build if on production', () => {
+  it('should write the slim bulma sass build if on production', () => {
     const context = {
       options: {
         dev: false,
-        rootDir: join(__dirname, '..'), //join(__dirname, '../node_modules/lodash.trim'), // to read the package.json that doesnt have sass dependencies
+        rootDir: join(__dirname, '..'),
         srcDir: join(__dirname, '../example'),
         css: [],
         build: {}
@@ -77,5 +77,34 @@ describe('Nuxt Module', () => {
 
     expect(lines).toHaveLength(10) // each feature
     expect(lines[0].includes(bulmaPath)).toBe(true)
+  })
+
+  it('should include the variables file in the build', () => {
+    const context = {
+      options: {
+        dev: true,
+        rootDir: join(__dirname, '..'), //join(__dirname, '../node_modules/lodash.trim'), // to read the package.json that doesnt have sass dependencies
+        srcDir: join(__dirname, '../example'),
+        css: [],
+        build: {}
+      }
+    }
+    const sassTempPath = join(tmpdir(), 'nuxt-bulma-slim.slim.sass')
+    const variablesPath = join(
+      __dirname,
+      '../example/assets/sass/variables.sass'
+    )
+    const options = { sassTempPath, variablesPath }
+
+    nuxtModule.call(context, options)
+
+    expect(existsSync(sassTempPath)).toBe(true)
+    expect(context.options.css).toHaveLength(1)
+    expect(context.options.css[0]).toBe(sassTempPath)
+
+    const lines = readFileSync(sassTempPath, 'utf8').split('\n')
+
+    expect(lines).toHaveLength(7) // each feature
+    expect(lines[1].includes(bulmaPath)).toBe(true)
   })
 })
