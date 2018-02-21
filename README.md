@@ -60,11 +60,12 @@ srcGlobs = [
 
 ### `variablesPath`
 
-This is a String of a path to a `*.sass`/`*.scss` file that contains variables.
+This is a String of a path to a `.sass`/`.scss` file that contains variables.
 Use this file to overwrite
 [Bulma's variables](https://bulma.io/documentation/overview/variables/).
 
-Note that the path can be absolute or relative to the Nuxt App `srcDir`.
+Note that the path can be absolute or relative to the Nuxt App `srcDir` and must
+be a `.sass` or `.scss` file.
 
 #### Default
 
@@ -73,8 +74,53 @@ variablesPath = '<Nuxt App srcDir>/assets/sass/variables.sass'
 ```
 
 ### `sassTempPath`
+
+This is a String of a path to the temporary `.sass` file that will be consumed
+by Nuxt.
+
+#### Default
+
+```javascript
+sassTempPath = '<OS temp dir>/nuxt-bulma-slim.sass'
+```
+
 ### `cssTempPath`
+
+This is a String of a path to the temporary `.css` file that will be consumed
+by Nuxt.
+
+#### Default
+
+```javascript
+sassTempPath = '<OS temp dir>/nuxt-bulma-slim.css'
+```
+
 ### `disablePostCSSWarnings`
+
+This is a Boolean to disable PostCSS warnings when compiling Bulma's SASS to
+CSS. If `true`, it will set this option in the Nuxt settings:
+
+```javascript
+{
+  build: {
+    postcss: {
+      plugins: {
+        'postcss-custom-properties': {
+          warnings: false
+        }
+      }
+    }
+  }
+}
+```
+
+Check out the [related issue](https://github.com/nuxt/nuxt.js/issues/1670).
+
+#### Default
+
+```javascript
+disablePostCSSWarnings = true
+```
 
 
 ## How does it work?
