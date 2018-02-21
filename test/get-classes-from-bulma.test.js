@@ -1,8 +1,10 @@
+const { join } = require('path')
 const getClassesFromBulma = require('../lib/get-classes-from-bulma')
 
 describe('Get Classes From Bulma', () => {
   it('should return all the defined classes', () => {
-    const classes = getClassesFromBulma()
+    const bulmaPath = join(__dirname, '../node_modules/bulma')
+    const classes = getClassesFromBulma(bulmaPath)
 
     expect(classes).toHaveLength(30)
 
