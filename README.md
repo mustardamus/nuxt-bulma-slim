@@ -1,7 +1,8 @@
 # nuxt-bulma-slim
 
 [Nuxt.js](https://nuxtjs.org) module to automatically make a slim
-[Bulma](https://bulma.io) build of used features.
+[Bulma](https://bulma.io) build of used features. Simply drop in this module and
+save precious kilobytes. Also gets rid of annoying warnings for you.
 
 
 ## Setup
