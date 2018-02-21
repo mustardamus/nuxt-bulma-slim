@@ -128,3 +128,31 @@ disablePostCSSWarnings = true
 
 
 ## Development
+
+#### `npm test`
+
+Run all the tests.
+
+#### `npm run test:watch`
+
+Re-run specific tests on file changes.
+
+#### `npm run lint`
+
+Lint all the code.
+
+#### `npm run lint:fix`
+
+Lint all the code and try to auto-repair problems.
+
+#### `npm run dev`
+
+Run the `./example` Nuxt App in dev mode (will use the whole Bulma library).
+
+#### `npm run build`
+
+Build the example Nuxt App (will only bundle Bulma features that are used).
+
+#### `npm start`
+
+Will start the example Nuxt App in production.
