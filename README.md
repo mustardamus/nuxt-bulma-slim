@@ -125,6 +125,62 @@ disablePostCSSWarnings = true
 
 ## How does it work?
 
+First all classes that Bulma provides are extracted along with the source files
+where they were found. For example the extracted class '.container' can be found
+in `bulma/sass/elements/container.sass`.
+
+Second all single file components (`*.vue` files in `layouts`, `pages` and
+`components` by default) are parsed for the `<template/>`. Then all used
+classes are extracted.
+
+The parser supports normal `class`es, and bound `:class`es. Take this template
+for example:
+
+```html
+<template>
+  <div :class="{
+    container: true,
+    'is-fluid': isFluid
+  }">
+    <div class="columns">
+      <div class="column">
+        Left
+      </div>
+      <div :class="'column ' + columnWidth">
+        Right
+      </div>
+    </div>
+  </div>
+</template>
+```
+
+The parser will extract the following classes from the template:
+
+```
+.container, .is-fluid, .columns, .column
+```
+
+Then these extracted classes are checked against the classes provided by Bulma.
+If they match, the related source file is added to the Bulma build.
+
+If the [node-sass](https://github.com/sass/node-sass) and
+[sass-loader](https://github.com/webpack-contrib/sass-loader) dependencies are
+found in the current project, it will write a temporary `.sass` file with all
+used Bulma features. Then this temporary file is given to Nuxt to compile and
+use.
+
+If one or all dependencies are missing, the module will compile the SASS Bulma
+build to CSS and write it to a temporary `.css` file. Then this temporary file
+is given to Nuxt to use.
+
+Note that the custom build is only made when in production mode (`nuxt build`).
+For development, the whole of Bulma is used so every feature is available.
+
+You can create the file `assets/sass/variables.sass` (or set the
+`variablesPath` option) to overwrite
+[Bulma's variables](https://bulma.io/documentation/overview/variables/). This
+file is simply put in front of the used Bulma SASS files, electively overwriting
+every variable that follows.
 
 
 ## Development
