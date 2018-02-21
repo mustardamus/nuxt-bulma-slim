@@ -1,8 +1,27 @@
 {
   "name": "nuxt-bulma-slim",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "Nuxt.js module to automatically make a slim Bulma build of used features",
+  "license": "MIT",
+  "author": {
+    "name": "Sebastian Senf",
+    "email": "contact@mustardamus.com",
+    "url": "https://enkrateia.me"
+  },
+  "main": "lib/index.js",
+  "repository": "https://github.com/mustardamus/nuxt-bulma-slim",
+  "bugs": "https://github.com/mustardamus/nuxt-bulma-slim/issues",
+  "keywords": [
+    "nuxt",
+    "nuxt.js",
+    "nuxt module",
+    "bulma",
+    "bulma css",
+    "slim"
+  ],
+  "engines": {
+    "node": ">=6.13.0"
+  },
   "scripts": {
     "dev": "PORT=9797 nuxt",
     "build": "nuxt build",
@@ -11,12 +30,6 @@
     "test:watch": "jest -c jest.config.js --watch",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "eslint --ignore-path .gitignore --fix ."
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "engines": {
-    "node": ">=6.13.0"
   },
   "dependencies": {
     "ansicolor": "^1.1.71",
