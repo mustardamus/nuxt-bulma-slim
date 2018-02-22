@@ -45,8 +45,11 @@ Or with custom options:
 
 ### `srcGlobs`
 
-This is an Array of [globs](https://github.com/sindresorhus/globby). This module
-will parse all the `*.vue` files it finds and extracts the used classes.
+This is an Array of [glob](https://github.com/sindresorhus/globby) paths. These
+paths can be absolute or relative to Nuxt App `srcDir`.
+
+This module will parse all the `*.vue` files it finds and extracts the used
+classes.
 
 Note that the files have to be single file components with the `.vue`
 extension.
@@ -129,7 +132,7 @@ disablePostCSSWarnings = true
 ## How does it work?
 
 First all classes that Bulma provides are extracted along with the source files
-where they were found. For example the extracted class '.container' can be found
+where they were found. For example the extracted class `.container` can be found
 in `bulma/sass/elements/container.sass`.
 
 Second all single file components (`*.vue` files in `layouts`, `pages` and
