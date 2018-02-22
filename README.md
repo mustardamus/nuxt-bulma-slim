@@ -4,6 +4,8 @@
 [Bulma](https://bulma.io) build of used features. Simply drop in this module and
 save precious kilobytes. Also gets rid of annoying warnings for you.
 
+![Demo](./example/assets/images/demo.png)
+
 
 ## Setup
 
