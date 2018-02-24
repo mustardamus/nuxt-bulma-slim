@@ -23,9 +23,9 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "dev": "PORT=9797 nuxt",
+    "dev": "PORT=9999 nuxt",
     "build": "nuxt build",
-    "start": "PORT=9797 nuxt start",
+    "start": "PORT=9999 nuxt start",
     "test": "jest -c jest.config.js --silent",
     "test:watch": "jest -c jest.config.js --watch",
     "lint": "eslint --ignore-path .gitignore .",
@@ -40,6 +40,7 @@
     "lodash.trim": "^4.5.1",
     "lodash.uniq": "^4.5.0",
     "node-sass": "^4.7.2",
+    "purgecss": "^0.20.0",
     "vue-template-compiler": "^2.5.13"
   },
   "devDependencies": {
