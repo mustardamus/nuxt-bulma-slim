@@ -1,7 +1,8 @@
 # nuxt-bulma-slim
 
 [Nuxt.js](https://nuxtjs.org) module to automatically make a slim
-[Bulma](https://bulma.io) build of used features. Simply drop in this module and
+[Bulma](https://bulma.io) build of used features with
+[Purgecss](https://www.purgecss.com). Simply drop in this module and
 save precious kilobytes. Also gets rid of annoying warnings for you.
 
 ![Demo](./example/assets/images/demo.png)
@@ -33,7 +34,8 @@ Or with custom options:
     [
       'nuxt-bulma-slim',
       {
-        variablesPath: 'assets/scss/variables.scss'
+        variablesPath: 'assets/scss/my-variables.scss',
+        additionalPaths: ['assets/scss/component-styles.scss']
       }
     ]
   ]
@@ -45,14 +47,9 @@ Or with custom options:
 
 ### `srcGlobs`
 
-This is an Array of [glob](https://github.com/sindresorhus/globby) paths. These
-paths can be absolute or relative to Nuxt App `srcDir`.
-
-This module will parse all the `*.vue` files it finds and extracts the used
-classes.
-
-Note that the files have to be single file components with the `.vue`
-extension.
+This is an Array of glob paths. These paths can be absolute or relative to the
+Nuxt App `srcDir` option. The Array is passed to Purgecss'
+[`content`](https://www.purgecss.com/configuration.html#content) option.
 
 #### Default
 
@@ -68,15 +65,23 @@ srcGlobs = [
 
 This is a String of a path to a `.sass`/`.scss` file that contains variables.
 Use this file to overwrite
-[Bulma's variables](https://bulma.io/documentation/overview/variables/).
+[Bulma's variables](https://bulma.io/documentation/overview/variables).
 
-Note that the path can be absolute or relative to the Nuxt App `srcDir` and must
-be a `.sass` or `.scss` file.
+Note that the path can be absolute or relative to the Nuxt App `srcDir` option
+and must be a `.sass` or `.scss` file.
+
+For convenience this module checks if one of these files exists and
+automatically set the `variablesPath` option if you haven't set it already:
+
+- `<Nuxt App srcDir>/assets/sass/variables.sass`
+- `<Nuxt App srcDir>/assets/scss/variables.scss`
 
 #### Default
 
 ```javascript
-variablesPath = '<Nuxt App srcDir>/assets/sass/variables.sass'
+variablesPath = null // if none of the above files exist, or ...
+variablesPath = '<Nuxt App srcDir>/assets/sass/variables.sass' // or ...
+variablesPath = '<Nuxt App srcDir>/assets/scss/variables.scss'
 ```
 
 ### `sassTempPath`
@@ -126,6 +131,32 @@ Check out the [related issue](https://github.com/nuxt/nuxt.js/issues/1670).
 
 ```javascript
 disablePostCSSWarnings = true
+```
+
+### `whitelist`
+
+This is an Array of whitelisted selectors and is given to Purgecss'
+[`whitelist`](https://www.purgecss.com/configuration.html#whitelist) option.
+
+Note that `html` and `body` are already whitelisted by this module.
+
+#### Default
+
+```javascript
+whitelist = []
+```
+
+### `whitelistPatterns`
+
+This is an Array of whitelisted selectors based on RegEx and is given to
+Purgecss'
+[`whitelistPatterns`](https://www.purgecss.com/configuration.html#whitelistpatterns)
+option.
+
+#### Default
+
+```javascript
+whitelistPatterns = []
 ```
 
 
