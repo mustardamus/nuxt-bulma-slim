@@ -35,13 +35,8 @@
     "ansicolor": "^1.1.71",
     "bulma": "^0.6.2",
     "debug": "^3.1.0",
-    "globby": "^8.0.1",
-    "lodash.flattendeep": "^4.4.0",
-    "lodash.trim": "^4.5.1",
-    "lodash.uniq": "^4.5.0",
     "node-sass": "^4.7.2",
-    "purgecss": "^0.20.0",
-    "vue-template-compiler": "^2.5.13"
+    "purgecss": "^0.20.0"
   },
   "devDependencies": {
     "eslint": "^4.18.0",
