@@ -24,4 +24,24 @@ describe('Options', () => {
     expect(options.whitelistPatterns).toEqual([])
     expect(options.additionalPaths).toEqual([])
   })
+
+  it('should overwrite default options', () => {
+    const srcDir = __dirname
+    const rootDir = __dirname
+    const customOptions = {
+      srcGlobs: ['/test'],
+      variablesPath: '/test.sass',
+      sassTempPath: '/test.sass',
+      cssTempPath: '/test.css',
+      disablePostCSSWarnings: false,
+      whitelist: ['test'],
+      whitelistPatterns: ['test'],
+      additionalPaths: ['/test'],
+      srcDir: '/test',
+      rootDir: '/test'
+    }
+    const options = getOptions({ srcDir, rootDir }, customOptions)
+
+    expect(options).toEqual(customOptions)
+  })
 })
