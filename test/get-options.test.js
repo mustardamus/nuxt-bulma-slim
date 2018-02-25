@@ -13,10 +13,7 @@ describe('Options', () => {
       join(__dirname, 'components/**/*.vue')
     ])
 
-    expect(options.variablesPath).toBe(
-      join(__dirname, 'assets/sass/variables.sass')
-    )
-
+    expect(options.variablesPath).toBe(null)
     expect(options.sassTempPath.includes('nuxt-bulma-slim.sass')).toBe(true)
     expect(options.cssTempPath.includes('nuxt-bulma-slim.css')).toBe(true)
     expect(options.disablePostCSSWarnings).toBe(true)
@@ -43,5 +40,25 @@ describe('Options', () => {
     const options = getOptions({ srcDir, rootDir }, customOptions)
 
     expect(options).toEqual(customOptions)
+  })
+
+  it('should automatically set variablesPath if assets/sass/variables.sass exists', () => {
+    const srcDir = join(__dirname, 'fixtures/sass')
+    const rootDir = __dirname
+    const options = getOptions({ srcDir, rootDir }, {})
+
+    expect(options.variablesPath).toBe(
+      join(srcDir, 'assets/sass/variables.sass')
+    )
+  })
+
+  it('should automatically set variablesPath if assets/scss/variables.scss exists', () => {
+    const srcDir = join(__dirname, 'fixtures/scss')
+    const rootDir = __dirname
+    const options = getOptions({ srcDir, rootDir }, {})
+
+    expect(options.variablesPath).toBe(
+      join(srcDir, 'assets/scss/variables.scss')
+    )
   })
 })
