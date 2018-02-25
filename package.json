@@ -1,7 +1,7 @@
 {
   "name": "nuxt-bulma-slim",
-  "version": "0.2.0",
-  "description": "Nuxt.js module to automatically make a slim Bulma build of used features",
+  "version": "0.3.0",
+  "description": "Nuxt.js module to automatically make a slim Bulma build of used features with Purgecss",
   "license": "MIT",
   "author": {
     "name": "Sebastian Senf",
@@ -17,7 +17,10 @@
     "nuxt module",
     "bulma",
     "bulma css",
-    "slim"
+    "slim",
+    "purgecss",
+    "sass",
+    "scss"
   ],
   "engines": {
     "node": ">=6.13.0"

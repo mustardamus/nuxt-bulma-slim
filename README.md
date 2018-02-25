@@ -163,7 +163,7 @@ whitelistPatterns = []
 
 This is an Array of additional `.sass`/`.scss`/`.css` paths that will be bundled
 along with the `variablesPath` and the Bulma build. This is useful if you want
-to bundle 3rd party libraries like [Buefy](https://buefy.github.io) that depent
+to bundle 3rd party libraries like [Buefy](https://buefy.github.io) that depend
 on Bulma.
 
 #### Default
@@ -181,7 +181,7 @@ defined `variablesPath`, the complete Bulma features, and any `additionalPaths`.
 This `.sass` file is then injected into the
 [`css`](https://nuxtjs.org/api/configuration-css) Array of Nuxt. Since Nuxt can
 compile SASS, it will also automatically hot-reload your styles when you change
-your variables or additional paths.
+your variables or additional paths content.
 
 In production mode (`nuxt build`/`nuxt start` & `nuxt generate`), this module
 will bundle the SASS just like in development. Additionally it will compile the
