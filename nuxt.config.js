@@ -4,7 +4,7 @@ module.exports = {
     [
       './lib',
       {
-        variablesPath: 'assets/sass/variables.sass'
+        additionalPaths: ['assets/sass/additional.sass']
       }
     ]
   ],
