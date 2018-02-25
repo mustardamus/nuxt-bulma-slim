@@ -28,8 +28,7 @@
     "start": "PORT=9999 nuxt start",
     "test": "jest -c jest.config.js --silent",
     "test:watch": "jest -c jest.config.js --watch",
-    "lint": "eslint --ignore-path .gitignore .",
-    "lint:fix": "eslint --ignore-path .gitignore --fix ."
+    "lint": "eslint --ignore-path .gitignore ."
   },
   "dependencies": {
     "ansicolor": "^1.1.71",

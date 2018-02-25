@@ -103,7 +103,7 @@ by Nuxt.
 #### Default
 
 ```javascript
-sassTempPath = '<OS temp dir>/nuxt-bulma-slim.css'
+cssTempPath = '<OS temp dir>/nuxt-bulma-slim.css'
 ```
 
 ### `disablePostCSSWarnings`
@@ -159,65 +159,36 @@ option.
 whitelistPatterns = []
 ```
 
+### `additionalPaths`
+
+This is an Array of additional `.sass`/`.scss`/`.css` paths that will be bundled
+along with the `variablesPath` and the Bulma build. This is useful if you want
+to bundle 3rd party libraries like [Buefy](https://buefy.github.io) that depent
+on Bulma.
+
+#### Default
+
+```javascript
+additionalPaths = []
+```
+
 
 ## How does it work?
 
-First all classes that Bulma provides are extracted along with the source files
-where they were found. For example the extracted class `.container` can be found
-in `bulma/sass/elements/container.sass`.
+In development mode (`nuxt dev`) a temporary `.sass` file is written with your
+defined `variablesPath`, the complete Bulma features, and any `additionalPaths`.
 
-Second all single file components (`*.vue` files in `layouts`, `pages` and
-`components` by default) are parsed for the `<template/>`. Then all used
-classes are extracted.
+This `.sass` file is then injected into the
+[`css`](https://nuxtjs.org/api/configuration-css) Array of Nuxt. Since Nuxt can
+compile SASS, it will also automatically hot-reload your styles when you change
+your variables or additional paths.
 
-The parser supports normal `class`es, and bound `:class`es. Take this template
-for example:
+In production mode (`nuxt build`/`nuxt start` & `nuxt generate`), this module
+will bundle the SASS just like in development. Additionally it will compile the
+SASS to CSS.
 
-```html
-<template>
-  <div :class="{
-    container: true,
-    'is-fluid': isFluid
-  }">
-    <div class="columns">
-      <div class="column">
-        Left
-      </div>
-      <div :class="'column ' + columnWidth">
-        Right
-      </div>
-    </div>
-  </div>
-</template>
-```
-
-The parser will extract the following classes from the template:
-
-```
-.container, .is-fluid, .columns, .column
-```
-
-Then these extracted classes are checked against the classes provided by Bulma.
-If they match, the related source file is added to the Bulma build.
-
-If the [node-sass](https://github.com/sass/node-sass) and
-[sass-loader](https://github.com/webpack-contrib/sass-loader) dependencies are
-found in the current project, it will write a temporary `.sass` file with all
-used Bulma features. Then this temporary file is given to Nuxt to compile and
-use.
-
-If one or all dependencies are missing, the module will compile the SASS Bulma
-build to CSS and write it to a temporary `.css` file. Then this temporary file
-is given to Nuxt to use.
-
-Note that the custom build is only made when in production mode (`nuxt build`).
-For development, the whole of Bulma is used so every feature is available.
-
-You can create the file `assets/sass/variables.sass` (or set the
-`variablesPath` option) to overwrite
-[Bulma's variables](https://bulma.io/documentation/overview/variables/). This
-file is simply put in front of the used Bulma SASS files, electively overwriting
-every variable that follows.
+This CSS is then run thru Purgecss to minify it, then it is written to a
+temporary `.css` file and injected into Nuxt's `css` Array.
 
 
 ## Development
@@ -233,10 +204,6 @@ Re-run specific tests on file changes.
 #### `npm run lint`
 
 Lint all the code.
-
-#### `npm run lint:fix`
-
-Lint all the code and try to auto-repair problems.
 
 #### `npm run dev`
 
