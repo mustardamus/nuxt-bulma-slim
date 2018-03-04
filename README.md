@@ -92,7 +92,7 @@ by Nuxt.
 #### Default
 
 ```javascript
-sassTempPath = '<OS temp dir>/nuxt-bulma-slim.sass'
+sassTempPath = '<Nuxt App rootDir>/.tmp/nuxt-bulma-slim.sass'
 ```
 
 ### `cssTempPath`
@@ -103,7 +103,7 @@ by Nuxt.
 #### Default
 
 ```javascript
-cssTempPath = '<OS temp dir>/nuxt-bulma-slim.css'
+cssTempPath = '<Nuxt App rootDir>/.tmp/nuxt-bulma-slim.css'
 ```
 
 ### `disablePostCSSWarnings`
@@ -177,6 +177,8 @@ additionalPaths = []
 
 In development mode (`nuxt dev`) a temporary `.sass` file is written with your
 defined `variablesPath`, the complete Bulma features, and any `additionalPaths`.
+
+Temporary files are written to the Nuxt's `rootDir` in the `.tmp` folder.
 
 This `.sass` file is then injected into the
 [`css`](https://nuxtjs.org/api/configuration-css) Array of Nuxt. Since Nuxt can

@@ -6,6 +6,7 @@ describe('Options', () => {
     const srcDir = __dirname
     const rootDir = __dirname
     const options = getOptions({ srcDir, rootDir }, {})
+    const tmpPath = join(rootDir, '.tmp')
 
     expect(options.srcGlobs).toEqual([
       join(__dirname, 'layouts/**/*.vue'),
@@ -14,8 +15,8 @@ describe('Options', () => {
     ])
 
     expect(options.variablesPath).toBe(null)
-    expect(options.sassTempPath.includes('nuxt-bulma-slim.sass')).toBe(true)
-    expect(options.cssTempPath.includes('nuxt-bulma-slim.css')).toBe(true)
+    expect(options.sassTempPath).toBe(join(tmpPath, 'nuxt-bulma-slim.sass'))
+    expect(options.cssTempPath).toBe(join(tmpPath, 'nuxt-bulma-slim.css'))
     expect(options.disablePostCSSWarnings).toBe(true)
     expect(options.whitelist).toEqual([])
     expect(options.whitelistPatterns).toEqual([])
