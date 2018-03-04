@@ -1,6 +1,6 @@
 {
   "name": "nuxt-bulma-slim",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Nuxt.js module to automatically make a slim Bulma build of used features with Purgecss",
   "license": "MIT",
   "author": {
