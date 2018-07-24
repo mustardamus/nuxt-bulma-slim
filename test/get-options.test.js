@@ -20,6 +20,7 @@ describe('Options', () => {
     expect(options.disablePostCSSWarnings).toBe(true)
     expect(options.whitelist).toEqual([])
     expect(options.whitelistPatterns).toEqual([])
+    expect(options.whitelistPatternsChildren).toEqual([])
     expect(options.additionalPaths).toEqual([])
   })
 
@@ -34,6 +35,7 @@ describe('Options', () => {
       disablePostCSSWarnings: false,
       whitelist: ['test'],
       whitelistPatterns: ['test'],
+      whitelistPatternsChildren: ['test'],
       additionalPaths: ['/test'],
       srcDir: '/test',
       rootDir: '/test'

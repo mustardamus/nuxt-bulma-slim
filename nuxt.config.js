@@ -4,7 +4,10 @@ module.exports = {
     [
       './lib',
       {
-        additionalPaths: ['assets/sass/additional.sass']
+        additionalPaths: ['assets/sass/additional.sass'],
+        whitelist: ['whitelist'],
+        whitelistPatterns: [/whitelist-patterns/],
+        whitelistPatternsChildren: [/children/]
       }
     ]
   ],

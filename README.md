@@ -159,6 +159,19 @@ option.
 whitelistPatterns = []
 ```
 
+### `whitelistPatternsChildren`
+
+This is an Array of whitelisted children selectors based on RegEx and is given
+to Purgecss'
+[`whitelistPatternsChildren`](https://www.purgecss.com/configuration.html#whitelistpatternschildren)
+option.
+
+#### Default
+
+```javascript
+whitelistPatternsChildren = []
+```
+
 ### `additionalPaths`
 
 This is an Array of additional `.sass`/`.scss`/`.css` paths that will be bundled
@@ -218,3 +231,8 @@ Build the example Nuxt App (will only bundle Bulma features that are used).
 #### `npm start`
 
 Will start the example Nuxt App in production.
+
+#### `npm run upgrade`
+
+Will start [npm-check](https://github.com/dylang/npm-check) to interactively
+upgrade the depeendencies.
