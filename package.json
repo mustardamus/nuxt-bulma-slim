@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "ansicolor": "1.1.76",
-    "bulma": "0.7.1",
+    "bulma": "0.7.3",
     "debug": "^3.1.0",
     "lodash.merge": "^4.6.1",
     "node-sass": "4.9.2",
