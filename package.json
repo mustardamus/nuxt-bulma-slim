@@ -1,16 +1,16 @@
 {
   "name": "nuxt-bulma-slim",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Nuxt.js module to automatically make a slim Bulma build of used features with Purgecss",
   "license": "MIT",
   "author": {
-    "name": "Sebastian Senf",
-    "email": "contact@mustardamus.com",
-    "url": "https://enkrateia.me"
+    "name": "Happy Valley IO",
+    "email": "mail@happyvalley.io",
+    "url": "https://happyvalley.io"
   },
   "main": "lib/index.js",
-  "repository": "https://github.com/mustardamus/nuxt-bulma-slim",
-  "bugs": "https://github.com/mustardamus/nuxt-bulma-slim/issues",
+  "repository": "https://github.com/HappyValleyIO/nuxt-bulma-slim",
+  "bugs": "https://github.com/HappyValleyIO/nuxt-bulma-slim/issues",
   "keywords": [
     "nuxt",
     "nuxt.js",
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "ansicolor": "1.1.76",
-    "bulma": "0.7.1",
+    "bulma": "0.7.3",
     "debug": "^3.1.0",
     "lodash.merge": "^4.6.1",
     "node-sass": "4.9.2",
